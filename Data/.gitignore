@@ -1,0 +1,4 @@
+Dot/
+TrainSamples/
+*epoch*.info
+*epoch*.model
