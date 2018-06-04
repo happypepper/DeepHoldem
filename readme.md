@@ -59,6 +59,16 @@ Flop | 12.42
 Turn | 7.57
 River | 3.33
 
+Training details:
+
+|# samples | Validation huber loss
+--- | --- | ---
+River network|1,000,000| 0.0415
+Turn network|1,000,000| 0.045
+Flop network|1,000,000| 0.013
+Preflop aux network|1,000,000| 0.0017
+
+
 I would love to test this implementation against other bots/players!
 
 ## Creating your own models
