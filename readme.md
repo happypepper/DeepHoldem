@@ -1,7 +1,7 @@
 # DeepHoldem
 
 This is an implementation of [DeepStack](https://www.deepstack.ai/s/DeepStack.pdf)
-for 200bb No Limit Texas Hold'em, extended from [DeepStack-Leduc](https://github.com/lifrordi/DeepStack-Leduc).
+for No Limit Texas Hold'em, extended from [DeepStack-Leduc](https://github.com/lifrordi/DeepStack-Leduc).
 
 ## Setup
 
@@ -37,7 +37,7 @@ Now reinstall torch and you should be good to go!
 
 ## Performance
 
-This implementation was tested against Slumbot 2017, the only publicly playable bot as of June 2018. The action abstraction used was half pot, pot and all in for first action, pot and all in for second action onwards. It achieved a winrate of **42bb/100** after 2616 hands. Notably, it achieved this playing inside of Slumbot's action abstraction space. DeepHoldem
+This implementation was tested against Slumbot 2017, the only publicly playable bot as of June 2018. The action abstraction used was half pot, pot and all in for first action, pot and all in for second action onwards. It achieved a baseline winrate of **42bb/100** after 2616 hands (equivalent to ~5232 duplicate hands). Notably, it achieved this playing inside of Slumbot's action abstraction space. DeepHoldem
 is continuing to play against SlumBot and I will regularly update the winrate.
 
 ![](Data/Images/slumbot_stats.png)
