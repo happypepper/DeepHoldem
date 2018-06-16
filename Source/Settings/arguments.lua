@@ -11,7 +11,7 @@ local params = {}
 params.gpu = false
 --- list of pot-scaled bet sizes to use in tree
 -- @field params.bet_sizing
-params.bet_sizing = {{0.5,1},{1},{1}}
+params.bet_sizing = {{1},{1},{1}}
 --- server running the ACPC dealer
 params.acpc_server = "localhost"
 --- server port running the ACPC dealer

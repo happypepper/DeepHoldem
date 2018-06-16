@@ -22,23 +22,20 @@ The HandRanks file was too big for github, so you will need to unzip it: `cd Sou
 #### scatterAdd
 When you try to run DeepHoldem, you will eventually run into a problem where `scatterAdd` is not defined.
 Torch7 actually includes a C++ implementation of scatterAdd but for whatever reason, doesn't include a lua
-wrapper for it. To fix this, open up your torch installation directory and edit the file `pkg/torch/TensorMath.lua`.
+wrapper for it.
 
-Around line 268, paste this code:
-```
-   wrap("scatterAdd",
-        cname("scatterAdd"),
-        {{name=Tensor, returned=true},
-         {name="index"},
-         {name="IndexTensor", noreadadd=true},
-         {name=Tensor}})
-```
-Now reinstall torch and you should be good to go!
+I've included `TensorMath.lua` files in the torch folder of this repository that include the wrapper functions for both CPU and GPU. Copy them to their corresponding torch installation folders.
+
+Now, from your torch installation directory, run:
+
+    ./clean.sh
+    TORCH_LUA_VERSION=52 ./install.sh
+
+and you should be good to go.
 
 ## Performance
 
-This implementation was tested against Slumbot 2017, the only publicly playable bot as of June 2018. The action abstraction used was half pot, pot and all in for first action, pot and all in for second action onwards. It achieved a baseline winrate of **42bb/100** after 2616 hands (equivalent to ~5232 duplicate hands). Notably, it achieved this playing inside of Slumbot's action abstraction space. DeepHoldem
-is continuing to play against SlumBot and I will regularly update the winrate.
+This implementation was tested against Slumbot 2017, the only publicly playable bot as of June 2018. The action abstraction used was half pot, pot and all in for first action, pot and all in for second action onwards. It achieved a baseline winrate of **42bb/100** after 2616 hands (equivalent to ~5232 duplicate hands). Notably, it achieved this playing inside of Slumbot's action abstraction space.
 
 ![](Data/Images/slumbot_stats.png)
 
@@ -67,9 +64,6 @@ Training details:
 |Turn network|1,000,000| 0.045|
 |Flop network|1,000,000| 0.013|
 |Preflop aux network|1,000,000| 0.0017|
-
-
-I would love to test this implementation against other bots/players!
 
 ## Creating your own models
 
