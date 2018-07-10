@@ -29,7 +29,7 @@ I've included `TensorMath.lua` files in the torch folder of this repository that
 Now, from your torch installation directory, run:
 
     ./clean.sh
-    TORCH_LUA_VERSION=52 ./install.sh
+    TORCH_LUA_VERSION=LUA52 ./install.sh
 
 and you should be good to go.
 
