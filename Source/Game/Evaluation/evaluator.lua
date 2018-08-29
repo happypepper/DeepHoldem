@@ -31,9 +31,6 @@ function M:_init()
     local f = assert(io.open("./Game/Evaluation/HandRanks.dat", "rb"))
     local data = f:read("*all")
     self._texas_lookup = arguments.Tensor(string.len(data) / 4):fill(0):long()
-    if arguments.gpu then
-      self._texas_lookup = self._texas_lookup:cudaLong()
-    end
     for i = 1, string.len(data), 4 do
       local num = 0
       for j = i,i+3 do
@@ -42,6 +39,9 @@ function M:_init()
       self._texas_lookup[(i - 1) / 4 + 1] = num
     end
     f:close()
+    if arguments.gpu then
+      self._texas_lookup = self._texas_lookup:cudaLong()
+    end
   end
 end
 
