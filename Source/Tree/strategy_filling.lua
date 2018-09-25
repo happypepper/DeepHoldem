@@ -49,7 +49,7 @@ function StrategyFilling:_fill_chance(node)
     local mask = card_tools:get_possible_hand_indexes(child_node.board):byte()
     node.strategy[i]:fill(0)
     --remove 2 because each player holds one card
-    node.strategy[i][mask] = 1.0 / (game_settings.card_count - 2)
+    node.strategy[i][mask] = 1.0 / (game_settings.card_count - 4)
   end
 end
 
